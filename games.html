@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chota Bheem CSS Adventure</title>
+  <link rel="stylesheet" href="games.css" />
+</head>
+<body>
+
+  <!-- HOME SCREEN -->
+  <div id="home-screen" class="home-screen">
+    <h1 class="game-title">Chhota Bheem: CSS Adventure</h1>
+    <button id="start-button" class="start-button">Play</button>
+  </div>
+
+  <div class="game-container" style="display: none;">
+    <!-- Left Side - Character intro popup -->
+    <div id="character-popup" class="character-popup">
+      <div class="character-bubble">
+        <img src="images/Chota_face.png" class="character-image" alt="Chota Bheem" id="narrator-image">
+        <div class="speech-bubble">
+          <p id="character-speech">Hello friends! I'm Chota Bheem from Dholakpur! I need your help to collect ladoos and defeat the evil king. Can you help me?</p>
+          <button id="continue-button">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Area -->
+    <div class="animation_box">
+      <div class="game-header">
+        <div class="energy-bar">
+          <div class="energy-label">Bheem's Energy:</div>
+          <div class="energy-meter">
+            <div class="energy-fill" id="energy-fill"></div>
+            <span id="energy-percent" class="energy-percent-text">0%</span>
+          </div>
+        </div>
+
+        <div class="level-indicator">Level: <span id="level-number">1</span></div>
+      </div>
+
+      <div class="box" id="game-box">
+        <img src="images/Chota_run.png" class="bheem" alt="Chota Bheem" id="bheem">
+        <img src="images/laddu.png" class="ladoo" alt="Ladoo" pulse id="ladoo">
+      </div>
+
+      <!-- Problem Modal -->  
+      <div id="problem-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="problem-title">Level 1</h2>
+            <img src="images/laddu.png" class="modal-ladoo" alt="Ladoo">
+          </div>
+          <p id="problem-description">Loading problem...</p>
+
+          <div class="code-container">
+            <div class="code-header">
+              <span>.box {</span>
+            </div>
+            <textarea id="code-editor" placeholder="Write your code here..."></textarea>
+            <div class="code-footer">
+              <span>}</span>
+            </div>
+          </div>
+
+          <div id="result-message"></div>
+
+          <div class="modal-buttons">
+            <button id="submit-code-button">Submit</button>
+            <audio id="myAudio" src="audios/chota_dance.mp3" ></audio>
+            <button id="hint-button">Hint</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Success Modal -->
+      <div id="success-modal" class="modal">
+        <div class="modal-content success-content">
+          <h2>Great Job!</h2>
+          <video width="320" height="240" autoplay muted loop>
+            <source src="videos/chota_dance.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p id="success-message">Bheem got his ladoo! He's very happy and stronger now!</p>
+          <button id="next-level-button">Next Level</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="games.js"></script>
+  <audio id="typingAudio" src="audios/intense.mp3" preload="auto" loop></audio>
+  
+  <!-- Intro Video (shown only on page load) -->
+  <video id="introVideo" src="videos/Chota bheem.mp4" controls playsinline style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 1000;"></video>
+
+  <!-- Intro Audio (not muted, plays with video) -->
+  <audio id="introAudio" src="audios/intro_audio.mp3" preload="auto"></audio>
+
+  <!-- Victory Video (shown when energy is full) -->
+  <video id="victoryVideo" src="videos/outro.mp4" controls playsinline style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 1000;"></video>
+
+</body>
+</html>
